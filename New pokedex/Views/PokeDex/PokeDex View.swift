@@ -14,7 +14,8 @@ struct PokeDex_View: View {
         NavigationView{
             List(viewModel.pokeDexList) { region in
                 HStack {
-                    NavigationLink(destination: PokemonDetailView(url: region.url)) {
+                    NavigationLink(destination: PokeDexDetailView(url: region.url)) {
+
                     }
                     Text(region.name.capitalized)
                 }

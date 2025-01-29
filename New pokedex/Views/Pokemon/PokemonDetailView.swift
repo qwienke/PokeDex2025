@@ -14,9 +14,9 @@ struct PokemonDetailView: View {
     
     // Custom initializer to pass the URL to the ViewModel
     init(url: String) {
-        self.url = url
-        _viewModel = StateObject(wrappedValue: PokemonDetailViewModel(url: url))
-    }
+            self.url = url
+            _viewModel = StateObject(wrappedValue: PokemonDetailViewModel(url: url))
+        }
     
     var body: some View {
             VStack {
