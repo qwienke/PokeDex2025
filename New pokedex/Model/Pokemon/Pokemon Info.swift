@@ -14,6 +14,7 @@ struct PokemonInfo: Codable, Identifiable {
     let location_area_encounters: String
     let sprites: Sprites
     let height: Int
+    let types: [TypesWrapper]
 
     
     
@@ -28,5 +29,13 @@ struct PokemonInfo: Codable, Identifiable {
     struct Sprites: Codable {
         let front_default: String
         let front_shiny: String
+    }
+    
+    struct TypesWrapper: Codable {
+        let types: Type
+    }
+    struct `Type`: Codable {
+        let name : String
+        let url: String
     }
 }
