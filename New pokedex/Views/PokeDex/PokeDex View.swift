@@ -12,6 +12,7 @@ struct PokeDex_View: View {
     
     var body: some View {
         ScrollView {
+            //Grid of all regions 
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 20) {
                 ForEach(viewModel.pokeDexList, id: \.url) { region in
                     Text(region.name.capitalized)

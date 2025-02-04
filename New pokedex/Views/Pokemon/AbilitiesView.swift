@@ -12,6 +12,7 @@ struct AbilitiesView: View {
     let url: String
     @StateObject  var viewModel: PokemonAbilitiesViewModel
     
+    //custom URL initilization
     init(url: String) {
         self.url = url
         _viewModel = StateObject(wrappedValue: PokemonAbilitiesViewModel(url: url))
@@ -19,6 +20,7 @@ struct AbilitiesView: View {
     
     var body: some View {
         VStack {
+            //List of pokemon ablilities
             if let info = viewModel.pokemonAbilitiesInfo {
                 Text("\(info.name)")
                 ForEach(info.effect_entries, id: \.effect) { entry in

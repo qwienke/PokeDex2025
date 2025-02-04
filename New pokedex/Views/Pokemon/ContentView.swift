@@ -12,6 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
+            //Pokemon list view
             List(viewModel.pokemonList) { pokemon in
                 NavigationLink(destination: PokemonDetailView(url: pokemon.url)) {
                     Text(pokemon.name.capitalized)
