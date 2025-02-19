@@ -20,8 +20,7 @@ struct MainTabView: View {
                     Label("Pokedex", systemImage: "list.bullet")
                 }
             
-            // Optional: Placeholder for future features
-            Text("Favorites")
+        AddTeamView()
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }

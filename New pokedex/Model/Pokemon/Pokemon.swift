@@ -19,6 +19,8 @@ struct PokemonModel: Codable, Identifiable {
     let name: String
     let url: String
 
+    var isFavorite: Bool = false
+
     
     private enum CodingKeys: String, CodingKey {
         case name

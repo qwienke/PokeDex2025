@@ -10,7 +10,7 @@ import Foundation
 class PokemonDetailViewModel: ObservableObject {
     @Published var pokemonInfo: PokemonInfo?  // The detailed data
     private let url: String                   // The Pokémon's URL
-
+    
     init(url: String) {
         self.url = url
         print(url)
@@ -44,4 +44,15 @@ class PokemonDetailViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    func toggleFavorite() {
+            // Ensure we have a value.
+            guard var info = pokemonInfo else { return }
+            // Toggle the favorite flag.
+            info.isFavorite.toggle()
+            // Reassign the updated info so the UI refreshes.
+            pokemonInfo = info
+        }
 }
+
+

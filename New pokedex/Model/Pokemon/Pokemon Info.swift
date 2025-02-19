@@ -14,13 +14,13 @@ struct PokemonInfo: Codable, Identifiable {
     let location_area_encounters: String
     let sprites: Sprites
     let height: Int
-    let types: [TypesWrapper]
-
-    
+   // let types: [TypeWrapper]
+    var isFavorite: Bool = false
     
     struct AbilityWrapper: Codable {
         let ability: Ability
     }
+    
     struct Ability: Codable {
         let name: String
         let url: String
@@ -31,11 +31,7 @@ struct PokemonInfo: Codable, Identifiable {
         let front_shiny: String
     }
     
-    struct TypesWrapper: Codable {
-        let types: Type
-    }
-    struct `Type`: Codable {
-        let name : String
-        let url: String
-    }
+    private enum CodingKeys: String, CodingKey {
+           case id, name, abilities, location_area_encounters, sprites, height
+       }
 }

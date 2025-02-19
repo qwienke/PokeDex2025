@@ -53,4 +53,16 @@ class PokeDexDetailViewModel: ObservableObject {
         }.resume()
         
     }
+    
+    func toggleFavorite(for entryNumber: Int) {
+            guard let info = pokeDexInfo else { return }
+            
+            // Find the index of the entry to update
+            if let index = info.pokemon_entries.firstIndex(where: { $0.entry_number == entryNumber }) {
+                // Because pokeDexInfo is a struct, you'll need to update the entire structure.
+                // You might want to make pokeDexInfo mutable or use an inout update pattern.
+                pokeDexInfo?.pokemon_entries[index].pokemon_species.isFavorite.toggle()
+            }
+        }
+
 }

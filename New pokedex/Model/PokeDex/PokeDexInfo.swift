@@ -9,9 +9,16 @@ import Foundation
 
 struct PokeDexInfo: Codable, Identifiable {
     var id: Int
+    var isFavorite = false
     
     var name: String
     var pokemon_entries: [PokemonEntriesWrapper]
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case pokemon_entries
+    }
 }
 
     struct PokemonEntriesWrapper: Codable, Identifiable {
@@ -24,6 +31,7 @@ struct PokeDexInfo: Codable, Identifiable {
 
     struct PokemonSpeciesWrapper: Codable, Identifiable {
         var id = UUID()
+        var isFavorite = false
         
         var name: String
         var url: String
@@ -33,6 +41,7 @@ struct PokeDexInfo: Codable, Identifiable {
                case url
            }
     }
+    
     
 
 

@@ -11,6 +11,9 @@
 		E4135B7D2D407F7900D4390B /* Pokemon Abilities Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4135B7C2D407F7900D4390B /* Pokemon Abilities Info.swift */; };
 		E41D44D12D4C6212007AFB58 /* Tab View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D44D02D4C6212007AFB58 /* Tab View.swift */; };
 		E41D44FB2D51ADB1007AFB58 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D44FA2D51ADB1007AFB58 /* TeamView.swift */; };
+		E41D45042D51BB10007AFB58 /* AddTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D45032D51BB10007AFB58 /* AddTeamView.swift */; };
+		E41D45062D544752007AFB58 /* Pokemon Team Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D45052D544752007AFB58 /* Pokemon Team Model.swift */; };
+		E41D452E2D65925B007AFB58 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D452D2D65925B007AFB58 /* Favorites.swift */; };
 		E4A76E5D2D35CE9600D41BEC /* New_pokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A76E5C2D35CE9600D41BEC /* New_pokedexApp.swift */; };
 		E4A76E5F2D35CE9600D41BEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A76E5E2D35CE9600D41BEC /* ContentView.swift */; };
 		E4A76E612D35CE9700D41BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A76E602D35CE9700D41BEC /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 		E4135B7C2D407F7900D4390B /* Pokemon Abilities Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pokemon Abilities Info.swift"; sourceTree = "<group>"; };
 		E41D44D02D4C6212007AFB58 /* Tab View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tab View.swift"; sourceTree = "<group>"; };
 		E41D44FA2D51ADB1007AFB58 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		E41D45032D51BB10007AFB58 /* AddTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamView.swift; sourceTree = "<group>"; };
+		E41D45052D544752007AFB58 /* Pokemon Team Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pokemon Team Model.swift"; sourceTree = "<group>"; };
+		E41D452D2D65925B007AFB58 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		E4A76E592D35CE9600D41BEC /* New pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "New pokedex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A76E5C2D35CE9600D41BEC /* New_pokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New_pokedexApp.swift; sourceTree = "<group>"; };
 		E4A76E5E2D35CE9600D41BEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				E41D44FA2D51ADB1007AFB58 /* TeamView.swift */,
+				E41D45032D51BB10007AFB58 /* AddTeamView.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -114,8 +121,10 @@
 		E4A76E862D35D02500D41BEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E41D45052D544752007AFB58 /* Pokemon Team Model.swift */,
 				E4B253EE2D448571001CD8FF /* PokeDex */,
 				E4B253EF2D44857A001CD8FF /* Pokemon */,
+				E41D452D2D65925B007AFB58 /* Favorites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,7 +280,9 @@
 				E4A76E8E2D37878200D41BEC /* Pokemon Info.swift in Sources */,
 				E4B253F12D4485A5001CD8FF /* PokeDexInfo.swift in Sources */,
 				E4A76E962D3899D100D41BEC /* AbilitiesView.swift in Sources */,
+				E41D45042D51BB10007AFB58 /* AddTeamView.swift in Sources */,
 				E4B253E12D41DE14001CD8FF /* PokeDex View.swift in Sources */,
+				E41D452E2D65925B007AFB58 /* Favorites.swift in Sources */,
 				E4135B7D2D407F7900D4390B /* Pokemon Abilities Info.swift in Sources */,
 				E4A76E5F2D35CE9600D41BEC /* ContentView.swift in Sources */,
 				E4A76E8B2D35D44900D41BEC /* PokemonViewModel.swift in Sources */,
@@ -279,6 +290,7 @@
 				E41D44D12D4C6212007AFB58 /* Tab View.swift in Sources */,
 				E4A76E892D35D2F300D41BEC /* Pokemon Response.swift in Sources */,
 				E4A76E5D2D35CE9600D41BEC /* New_pokedexApp.swift in Sources */,
+				E41D45062D544752007AFB58 /* Pokemon Team Model.swift in Sources */,
 				E4A76E922D378D9A00D41BEC /* PokemonDetailView.swift in Sources */,
 				E4135B7B2D407EB900D4390B /* PokemonAbilitiesViewModel.swift in Sources */,
 				E41D44FB2D51ADB1007AFB58 /* TeamView.swift in Sources */,

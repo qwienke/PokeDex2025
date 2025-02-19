@@ -31,7 +31,6 @@ struct AbilitiesView: View {
             }
         }
         .onAppear {
-            // 🔑 Trigger the network call here
             viewModel.fetchPokemonDetails()
         }
     }
