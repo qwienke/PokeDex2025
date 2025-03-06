@@ -1,63 +1,37 @@
-////
-////  TeamView.swift
-////  New pokedex
-////
-////  Created by Quinn Wienke on 2/3/25.
-////
 //
-//import SwiftUI
+//  TeamView.swift
+//  New pokedex
 //
-//struct Team: Identifiable, Codable {
-//    let id = UUID()  // Unique identifier for SwiftUI
-//    let members: [String]  // The names of the Pokémon in the team
-//}
+//  Created by Quinn Wienke on 2/21/25.
 //
-//struct TeamView: View {
-//    // Hardcoded list of teams for now
-//    let teams: [Teams]
-//    let columns: [GridItem] = [GridItem(.flexible())]
-//    @State private var isShowingNewView = false
-//    
-//    
-//    var body: some View {
-//        
-//        NavigationStack {
-//            ScrollView {
-//                LazyVGrid(columns: columns, spacing: 20) {
-//                    ForEach(teams) { team in
-//                        // Each team cell: a vertical stack
-//                        VStack(alignment: .leading, spacing: 10) {
-//                            Text("Team")
-//                                .font(.headline)
-//                            
-//                            // Horizontal list of team members
-//                            HStack {
-//                                ForEach(team.members, id: \.self) { member in
-//                                    Text(member)
-//                                        .padding(4)
-//                                        .background(Color.blue.opacity(0.2))
-//                                        .cornerRadius(5)
-//                                }
-//                            }
-//                        }
-//                        .padding()
-//                        .frame(maxWidth: .infinity)
-//                        .background(Color.gray.opacity(0.2))
-//                        .cornerRadius(10)
-//                    }
-//                }
-//                .padding()
-//                .navigationTitle("Teams")
-//                .navigationBarItems(trailing: NavigationLink(destination: AddTeamView()) {
-//                                    Image(systemName: "plus")
-//                                })
-//            }
-//        }
-//    }
-//}
-//    
-//    
-//    #Preview {
-//        TeamView()
-//    }
-//
+
+import SwiftUI
+
+struct TeamView: View {
+    
+    @EnvironmentObject var viewModel: PokemonViewModel
+    
+    var body: some View {
+        List {
+            ForEach(viewModel.teams) { team in
+                if team.pokemon.isEmpty {
+                    Text("No Team Yet")
+                } else {
+                    ForEach(team.pokemon, id: \.id) { pokemon in
+                        HStack {
+                            Text(pokemon
+                                .name)
+                        }
+                    }
+                }
+        }
+        }
+        .onAppear() {
+            viewModel.loadTeams() 
+        }
+    }
+}
+
+#Preview {
+    TeamView()
+}

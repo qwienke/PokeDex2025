@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @StateObject var viewModel = PokemonViewModel()
+    
     var body: some View {
         TabView {
             PokeDex_View()
@@ -24,7 +26,13 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
+            
+            TeamView()
+                            .tabItem {
+                                Label("Teams", systemImage: "person.3")
+                            }
         }
+        .environmentObject(viewModel)
     }
 }
 

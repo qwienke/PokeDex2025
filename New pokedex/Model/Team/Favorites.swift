@@ -14,13 +14,13 @@ struct FavoritePokemon: Identifiable {
     var teams: [Teams]
 }
 
-struct Teams: Identifiable {
+struct Teams: Identifiable, Encodable, Decodable {
     var id: Int = UUID().hashValue
     var teamName: String
     var pokemon: [TeamPokemon]
 }
 
-struct TeamPokemon: Identifiable {
+struct TeamPokemon: Identifiable, Encodable, Decodable {
     var id: Int
     var name: String
     var type: [String] // This lets you store "Fire", "Flying", etc.

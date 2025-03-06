@@ -16,7 +16,30 @@ class PokemonViewModel: ObservableObject {
     @Published var favoritePokemonList: [FavoritePokemon] = []
     @Published var teams: [Teams] = []
     
+    //Save Teams to User Defaults
+    func saveTeams() {
+        do {
+            let data = try JSONEncoder().encode(teams)
+            UserDefaults.standard.set(data, forKey: "savedTeams")
+            print("💾 Teams saved!")
+        } catch {
+            print("🚨 Error saving teams: \(error)")
+        }
+    }
     
+    //Decodes Teams in User Defaults
+    func loadTeams() {
+        if let data = UserDefaults.standard.data(forKey: "savedTeams") {
+            do {
+                teams = try JSONDecoder().decode([Teams].self, from: data)
+                print("📂 Teams loaded!")
+            } catch {
+                print("🚨 Error loading teams: \(error)")
+            }
+        }
+    }
+    
+    //Select and deselect favorite
     func toggleFavorite(for pokemon: PokemonModel) {
         if let index = pokemonList.firstIndex(where: { $0.id == pokemon.id }) {
             var updatedPokemon = pokemonList[index]
@@ -33,6 +56,7 @@ class PokemonViewModel: ObservableObject {
         }
     }
     
+    //Fetch pokemon info from JSON
     func fetchPokemonInfo(for id: Int) {
         let urlString = "https://pokeapi.co/api/v2/pokemon/\(id)"
         guard let url = URL(string: urlString) else { return }
@@ -73,6 +97,12 @@ class PokemonViewModel: ObservableObject {
         let newTeam = Teams(id: UUID().hashValue, teamName: "My Team", pokemon: [])
         teams.append(newTeam)
         print("✅ New team created: \(newTeam.teamName), ID: \(newTeam.id)")
+        
+        //save team
+        saveTeams()
+        
+        //Update teams when user adds new team
+        objectWillChange.send()
         return newTeam
     }
     
@@ -88,6 +118,9 @@ class PokemonViewModel: ObservableObject {
         if !teams[teamIndex].pokemon.contains(where: { $0.id == pokemon.id }) {
             teams[teamIndex].pokemon.append(newTeamPokemon)
             print("✅ Added \(pokemon.name) to team \(teams[teamIndex].teamName)")
+            
+            //Save team
+            saveTeams()
         } else {
             print("⚠️ \(pokemon.name) is already in the team!")
         }
@@ -128,5 +161,9 @@ class PokemonViewModel: ObservableObject {
             
         }.resume()
         
+    }
+    init() {
+        print("✅ PokemonViewModel initialized!")
+        loadTeams() // Calls the function to load teams from UserDefaults
     }
 }
