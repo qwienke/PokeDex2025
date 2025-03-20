@@ -23,5 +23,6 @@ struct Teams: Identifiable, Encodable, Decodable {
 struct TeamPokemon: Identifiable, Encodable, Decodable {
     var id: Int
     var name: String
-    var type: [String] // This lets you store "Fire", "Flying", etc.
+    var type: [String]
+    var imageURl: String
 }

@@ -106,6 +106,12 @@ class PokemonViewModel: ObservableObject {
         return newTeam
     }
     
+    //Delete team
+    func deleteTeam(at indexSet: IndexSet) {
+        teams.remove(atOffsets: indexSet)
+        saveTeams() // 🔹 Make sure to update storage after deletion
+    }
+    
     //add favorite pokemon to the created team
     func addPokemonToTeam(pokemon: FavoritePokemon, teamID: Int) { // ✅ Ensure parameter is "teamID"
         guard let teamIndex = teams.firstIndex(where: { $0.id == teamID }) else {
@@ -113,7 +119,9 @@ class PokemonViewModel: ObservableObject {
             return
         }
 
-        let newTeamPokemon = TeamPokemon(id: pokemon.id, name: pokemon.name, type: [])
+        let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokemon.id).png"
+
+        let newTeamPokemon = TeamPokemon(id: pokemon.id, name: pokemon.name, type: [], imageURl: imageUrl)
 
         if !teams[teamIndex].pokemon.contains(where: { $0.id == pokemon.id }) {
             teams[teamIndex].pokemon.append(newTeamPokemon)
@@ -125,6 +133,7 @@ class PokemonViewModel: ObservableObject {
             print("⚠️ \(pokemon.name) is already in the team!")
         }
     }
+    
     func fetchPokemon() {
         guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=1304") else {
             
